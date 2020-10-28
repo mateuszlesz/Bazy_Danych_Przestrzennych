@@ -9,9 +9,6 @@ GROUP BY p.gid
 --5
 CREATE TABLE aiportsNew as SELECT elev,name,geom FROM airports;
 
-(SELECT a.name,a.geom FROM aiportsNew a ORDER BY ST_X(a.geom) DESC LIMIT 1) UNION ALL
-(SELECT a.name,a.geom FROM aiportsNew a ORDER BY ST_X(a.geom) ASC LIMIT 1) ;
-
 SELECT a.name, a.geom AS EW FROM airports a WHERE ST_X(a.geom) IN (SELECT MAX(ST_X(a.geom)) FROM airports a) 
 OR ST_X(a.geom) IN (SELECT MIN(ST_X(a.geom)) FROM airports a);
 
