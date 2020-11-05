@@ -16,7 +16,7 @@ SELECT ST_Centroid(ST_Union(SELECT a.geom FROM airports a WHERE ST_X(a.geom) IN 
 OR ST_X(a.geom) IN (SELECT MIN(ST_X(a.geom)) FROM airports a) AS g)) FROM g;
 
 
-INSERT INTO aiportsNew values (200,'Cekus',
+INSERT INTO aiportsNew values (200,'Airpot22',
 (SELECT ST_Centroid(ST_Union(a.geom)) FROM airports a WHERE ST_X(a.geom) IN (SELECT MAX(ST_X(a.geom)) FROM airports a) 
 OR ST_X(a.geom) IN (SELECT MIN(ST_X(a.geom)) FROM airports a)));
 
